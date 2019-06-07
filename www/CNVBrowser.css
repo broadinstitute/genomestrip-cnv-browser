@@ -1,0 +1,937 @@
+/*********************************************************************************/
+
+
+/* Global stuff*/
+
+
+/* Use these marks to comment */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+html {
+    background-color: #333;
+}
+
+
+/* Big white area */
+
+#container,
+div.tab-content {
+    background-color: white;
+    min-height: 800px;
+    width: 100%;
+    display: inline-block;
+}
+
+.container-fluid {
+    padding: 0;
+    margin: 0;
+}
+
+
+/* all entry forms */
+
+.form-group {
+    float: left;
+}
+
+
+/* inputs */
+
+input {
+    margin: 0;
+}
+
+.Hide {
+    display: none!important;
+}
+
+.show {
+    display: block;
+}
+
+
+/* Generic heading parameters */
+
+h1,
+h2,
+h3,
+h4 {
+    clear: left;
+    color: #333;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+h2{
+    margin-top:1.5em;
+}
+
+h3 {
+    font-weight: 400;
+    font-size: 1.3em;
+    text-align: left;
+    float:left;
+}
+
+hr {
+    clear: left;
+    border-color: #ebebeb;
+    margin-top: 3em;
+    margin-bottom: 2em;
+}
+
+/* Help and about pages */
+
+/*
+.help (h1,h2,h3,h4) {
+{
+    color: #777;
+    text-align: left;
+}
+*/
+
+/* there must be some more concise way to do this */
+
+.doc h1,
+.doc h2,
+.doc h3,
+.doc h4 {
+    color: #777;
+    text-align: left;
+}
+
+.doc h1 {
+    font-size: 2em;
+}
+
+/* All the generic button parameters */
+
+.btn {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: repeating-linear-gradient(#555, #333 40px);
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-position: 0 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 10px;
+    padding: 4px 12px;
+    text-align: center;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    vertical-align: middle;
+    outline: 0 none;
+    margin: 0%;
+    border-radius: 4px;
+}
+
+.btn:hover,
+btn:focus {
+    background: #000 none;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+    outline: 0 none;
+    text-decoration: none;
+    padding: 4px 12px;
+    border-radius: 4px;
+}
+
+.btn:focus {
+    color: #fff;
+    border-color: #66afe9;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+    outline: 0 none;
+}
+
+.btn:active {
+    background-image: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+    outline: 0 none;
+    background-color: #000;
+    color: gray;
+    border-radius: 4px;
+}
+
+.col-sm-6 {
+    padding: 0;
+    padding-left: 4.8%;
+}
+
+
+.rightalign{
+    text-align:right;
+}
+
+.centeralign{
+    text-align:center;
+}
+
+.col-sm-5{
+    width:47%;
+}
+/*********************************************************************************/
+
+
+/*Adjusting navbar*/
+
+
+/********logo and nav buttons********/
+
+div.logo {
+    color: white;
+    font-weight: bold;
+    float: left;
+    margin-left: 15px;
+    padding-top: 20px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    min-height: 71px;
+}
+
+div.logo img {
+    width: 11%;
+    margin-top: -7px;
+}
+
+div.tabbable {
+    background: linear-gradient(#555, #333 40px);
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+ul.nav-tabs {
+    float: right;
+    border: none;
+    background: none;
+}
+
+ul.nav-tabs li a,
+ul.nav-tabs li.active a {
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+ul.nav-tabs li.hover a,
+ul.nav-tabs a:hover {
+    background-color: #585757;
+    border: none;
+    color: white;
+}
+
+ul.nav-tabs li.active a:hover,
+ul.nav-tabs li.active a {
+    color: black;
+    border: none;
+}
+
+div.tab-content {
+    margin-top: 3px;
+}
+
+
+/********search bar stuff********/
+
+div.SearchAreaNavBar {
+    float: left;
+    margin-left: 15%;
+}
+
+button#navBarSearchButton {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 6px 12px 6px 12px;
+    margin-top: 1.5em;
+}
+
+
+/*********************************************************************************/
+
+
+/*Search Page*/
+
+
+/********Search Area********/
+
+div.SearchArea {
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 0px;
+}
+
+div.SearchArea h1 {
+    margin-top: 2em;
+}
+
+#summaryResultsArea {
+    padding-top: 4em;
+    width: 90%;
+    margin: auto;
+}
+
+button#searchButton {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 6px 12px 6px 12px;
+}
+
+div.SearchArea>div.form-group {
+    width: 52%;
+    display: inline-block;
+    float: none;
+    margin-bottom: 0em;
+}
+
+div.searchCheckBox {
+    margin: auto;
+    width: 10em;
+    color: gray;
+}
+
+.tinyText>p {
+    float: left;
+    margin-bottom: 0;
+}
+
+.tinyText {
+    display: inline-block;
+    margin-top: 0.3em;
+    clear: left;
+    color: gray;
+}
+
+div.info p {
+    width: 60%;
+    margin: auto;
+    text-align: left;
+    clear: left;
+    padding: 1em;
+    border-radius: 10px;
+}
+
+div.info h2 {
+    margin-top: 3em;
+}
+
+
+/********Search Filter Stuff********/
+
+#searchFiltersArea {
+    width: 40em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    margin-bottom: 2.5em;
+    text-align: left;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #cbc6d3;
+    border-radius: 5px;
+    padding: 0px;
+    clear: left;
+}
+
+#searchFiltersArea .col-sm-4 {
+    width: 33.33333333%;
+}
+
+#filterType {
+    padding-left: 2em;
+    padding-top: 3em;
+}
+
+
+/********Table********/
+
+div#searchResultsTable {
+    margin-bottom: 30px;
+}
+
+table.dataTable thead .sorting,
+table.dataTable thead .sorting_asc,
+table.dataTable thead .sorting_desc,
+.dataTable #populationAlleleTable thead {
+    color: white;
+    background-color: #444;
+    text-shadow: none;
+}
+
+.dataTable>#populationAlleleTable>.table.shiny-table.spacing-s>thead,
+.dataTable .shiny-table.spacing-s > thead > tr > th {
+    padding:10px 18px;
+    border-bottom: 1px solid #111;
+    padding-right:10px;
+}
+
+.shiny-table.spacing-s > tbody > tr > td{
+    padding:8px 10px;
+}
+
+.dataTable #populationAlleleTable table{
+    border-bottom:1px solid #111;
+}
+
+.table {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+    margin-bottom: 3em;
+    clear: left;
+    font-size: 16px;
+    border-collapse: separate;
+}
+
+td {
+    background: #fff;
+    text-align: right;
+}
+
+th {
+    text-align:right;
+}
+
+#callDownloadButton {
+    text-align: center;
+    padding-bottom: 10px;
+    margin: auto;
+    width: 1em;
+}
+
+div#callDownloadButton a.dt-button,
+div#searchResultsTable .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+div#sampleGtDownloadButton a.dt-button,
+div#perSampleGenotypesTable .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background-image: repeating-linear-gradient(#555, #333 40px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+    color: #fff!important;
+    font-size: 14px;
+    padding: 6px 12px 6px 12px;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    display: inline-block;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    vertical-align: middle;
+    outline: 0 none;
+    margin: 0%;
+}
+
+
+/********Search Results Plot********/
+
+#mainPlotArea {
+    padding-bottom: 5em;
+}
+
+button#MainPlotRightButton3,
+button#MainPlotZoomInButton3,
+button#locusPlotOneRightButton3,
+button#locusPlotOneZoomInButton3,
+button#locusPlotTwoRightButton3,
+button#locusPlotTwoZoomInButton3,
+button#ProfilePlotRightButton3,
+button#ProfilePlotZoomInButton3{
+    margin-right: 15px;
+}
+
+.locusWindowInterval {
+    display: inline-block;
+    float: left;
+    font-weight: 400;
+    margin-top: 3px;
+}
+
+div.navbuttons {
+    clear: left;
+    margin-bottom: 0.2em;
+}
+
+.ucscLink {
+    display: inline-block;
+    float: left;
+    clear: left;
+    margin-bottom: 0.5em;
+}
+
+div#mainPlotArea .col-sm-1 {
+    padding: 0;
+}
+
+
+/*********************************************************************************/
+
+
+/*Details Page*/
+
+
+#locusPlotNavDiv {
+    margin-left: 1em;
+}
+
+div#locusPlotOneArea .col-sm-1 {
+    padding: 0;
+}
+
+div.history {
+    display: inline-block;
+    margin: auto;
+}
+
+.centered {
+    text-align: center;
+}
+
+#callName {
+    color: black;
+    font-size: 2em;
+    font-weight: bold;
+    padding: 0px;
+    text-align: center;
+    width: 95%;
+    margin: auto;
+    margin-top: 1em;
+    background:#f2f2f2;
+    border-radius:5px;
+}
+
+div#callDetailsTab h2 {
+    text-align: left;
+    padding-left: 3%;
+    margin-bottom: 0.5em;
+}
+
+div.details {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    border-radius: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #cbc6d3;
+    padding-top: 20px;
+    display: inline-block;
+}
+
+#callDetailsArea a:link {
+    float: left;
+    margin: 0 auto;
+    padding-left: 0px;
+    padding-top: 0px;
+}
+
+dl {
+    padding: 0.5em;
+}
+
+dt {
+    clear: left;
+    float: left;
+    padding-left: 0px;
+    padding-bottom: 10px;
+    width: 7em;
+}
+
+dd {
+    float: left;
+    text-align: left;
+    padding-left: 5px;
+    padding-bottom: 1px;
+    width: 65%;
+}
+
+div#breakpoint {
+    overflow: auto;
+}
+
+div#showSampleGenotypes{
+    width:100%;
+    margin:0;
+    padding:7px;
+}
+
+div#showSampleGenotypes label{
+    float:left;
+    margin-right: 10px;
+    font-weight:400;
+}
+
+div#genotypingPlotsArea .checkbox, div#genotypingPlotsArea .col-sm-6 .form-group{
+    margin-bottom: 5px;
+}
+
+.col-sm-6 .col-sm-7 .form-group{
+    margin-bottom: 0px;
+}
+
+div#genotypingPlotsArea .col-sm-5,
+{
+    margin-left: 6%;
+}
+
+div#genotypingPlotsArea .col-sm-6 .col-sm-5 {
+    margin-left: 0%;
+}
+
+div#genotypingPlotsArea .col-sm-6 .col-sm-7 .form-group,
+div#genotypingPlotsArea .col-sm-5 .col-sm-6 .form-group {
+    margin-bottom: 0;
+}
+
+#histHeightControllerUI {
+    margin-top: 10px;
+}
+
+
+h3#ProfilePlot{
+    margin-left:3%;
+}
+
+.tableholder {
+    height: 400px;
+    overflow: auto;
+}
+
+#sampleGtDownloadButton {
+    text-align: center;
+    float:right;
+    margin-top:-2.7em;
+}
+
+#profilePlotDiv{
+    width:96%;
+    margin-left:1.5em;
+}
+
+#profileMaxDepthDiv > .shiny-input-container,
+#profileMaxDepthDiv > #profileHeightControllerUI > .shiny-input-container
+{
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+#profileBinSize {
+    clear:left;
+}
+
+#colorInputDiv > .shiny-input-container {
+    text-align: left;
+    padding-top: 1em;
+    width: 50px;
+}
+
+#profileSamplesDiv>.form-group{
+    width:16em;
+}
+
+#profilePlotControls{
+    margin-left:2%;
+}
+
+button#refreshProfilePlot{
+    clear:left;
+    float:left;
+}
+
+#profilePlotNavDiv {
+    margin-left: 3.2em;
+    margin-top:1em;
+}
+
+.controls{
+    background-color: #f2f2f2;
+    overflow:auto;
+    border-radius:5px;
+    clear:left;
+}
+
+.controls.batch{
+    overflow:unset;
+    float:left;
+    width:100%;
+}
+
+div#batchSelector{
+    margin-left:15px;
+    margin-top:5px;
+}
+
+.col-sm-2.smaller{
+    width:11%;
+}
+
+.col-sm-4.smaller{
+    width:30%;
+}
+
+#profileBinningDiv .form-group{
+    margin-bottom:0;
+}
+
+.GenoHistograms{
+    margin-bottom:2.5em;
+}
+
+div#populationAlleleUI{
+    text-align: center;
+    padding:2em;
+}
+
+div#populationAlleleUI table{
+    text-align: center;
+    margin-top:0em;
+}
+/*********************************************************************************/
+
+
+/*Mobile and Screen size considerations*/
+@media (max-width:1280px) {
+    div.SearchAreaNavBar {
+        margin-left: 10%;
+    }
+}
+
+
+
+/* Hover help text */
+.xtooltip {
+  position: relative;
+  display: inline-block;
+  float:left;
+  margin-top:1.2em;
+  margin-left:1em;
+}
+
+.xtooltip .tooltiptext {
+  visibility: hidden;
+  width: 300px;
+  background-color: white;
+  color: #444444;
+  text-align: left;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  border:solid thin #444444;
+}
+
+.xtooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+/*Text pages*/
+.textpage{
+    padding:1em;
+}
+
+.textpage h3{
+    float:none;
+    margin-top:2em;
+}
+
+/*********************************************************************************/
+
+
+/*Misc*/
+
+
+/*Making the buttons look like links*/
+
+.hyperlink {
+    background-image: none;
+    box-shadow: none;
+    color: #00609F;
+    cursor: pointer;
+    display: inline;
+    font-size: 14px;
+    line-height: inherit;
+    padding: 0px;
+    text-align: center;
+    text-shadow: none;
+    vertical-align: middle;
+    outline: none;
+    margin: 0%;
+    border-radius: 0px;
+    margin-right: -0.3em;
+}
+
+.hyperlink:hover,
+hyperlink:focus {
+    background: none;
+    color: #008850;
+    box-shadow: none;
+    outline: none;
+    text-decoration: underline;
+    padding: 0px;
+}
+
+.hyperlink:focus {
+    color: #23527c;
+    box-shadow: none;
+}
+
+.hyperlink:active {
+    background-image: none;
+    box-shadow: none;
+    outline: 0;
+}
+
+
+/* Search Warnings */
+
+#searchWarnings {
+    color: red;
+    font-size: 1em;
+    margin:auto;
+    margin-bottom: 0.5em;
+    text-align: center;
+    width:30%;
+    background:pink;
+}
+
+
+/*Stuff for the results table*/
+
+caption {
+    text-align: right;
+}
+
+
+/* Navigation buttons */
+
+button.NoRight {
+    margin-right: -0.15em;
+}
+
+
+/* link to UCSC */
+
+
+/* A bulk container for all the CNV plots */
+
+.secondaryLocusArea {
+    float: left;
+    width: 95%;
+    margin-left: 3%;
+    margin-bottom: 1em;
+    text-align: left;
+}
+
+.locusHeading {
+    margin-bottom: 1em;
+}
+
+#callDetailsTab {
+    padding-top: 2em;
+}
+
+#backButton,
+#forwardButton {
+    margin-left: 7px;
+    width: 6em;
+}
+
+#genotypingPlotsHeading {
+    margin-top: 0em;
+    margin-bottom: 2.5em;
+}
+
+#grayHistogram,
+#colorHistogram {
+    margin-top: 10px;
+}
+
+div.shinysky-busy-indicator {
+    z-index: 2000;
+}
+
+#locusPlotMain_tooltip,
+#locusPlotOne_tooltip,
+#locusPlotTwo_tooltip,
+#profilePlot_tooltip {
+    position: absolute;
+    background-color: #39393f;
+    color: white;
+    width: 300px;
+    z-index: 100;
+}
+
+#MainPlotHeight {
+    margin: 0;
+    padding-top: 5em;
+}
+
+#geneList {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#geneList:hover {
+    overflow: visible;
+    white-space: normal;
+    width: auto;
+}
+
+#geneList:hover a:link {
+    padding: 3px;
+}
+
+#geneList a:link {
+    float: none;
+    margin: 0 auto;
+    padding-left: 0px;
+    padding-top: 0px;
+}
+
+#copyNumberTable {
+    margin: auto;
+}
+
+#copyNumberTable th {
+    width: 100px;
+    background-color: #f1f1c1;
+}
+
+#copyNumberBarplot {
+    margin: auto;
+}
+
+#copyNumberTableDiv {
+    float: left;
+    width: 60%;
+}
+
+#copyNumberBarplotDiv {
+    float: right;
+    width: 40%;
+    padding-top: 3em;
+    padding-right: 10em;
+}
+
+#profilePlot {
+    margin-top: 0.2em;
+    margin-bottom: 4em;
+}
+
+i.help-icon {
+    color: #444444;
+}

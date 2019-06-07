@@ -1,0 +1,106 @@
+<div class=textpage>
+<h1>Help</h1>
+
+<h2>Search &amp; Results Tab</h2>
+<p>
+The search tab allows you expore the CNV calls by selecting a genomic locus and optional filtering criteria.
+<p>
+The genomic locus can be specified by coordinate, by gene, or by referencing a CNV with a known identifier.
+The genome locus can be an entire chromosome (e.g. "chr20") or a coordinate range (e.g. "chr20:1-1000000").
+
+<h3>Locus Plot</h3>
+<p>
+The search tab (and also the details tab) displays a locus plot which shows the CNVs in a specific region of the genome.
+<p>
+Eacn CNV is displayed as a rectangle on the plot. The width of the rectangle shows the extent of the CNV on the genome.
+The height of the rectangle indicates the overall frequency of the CNV as observed in this cohort.
+The color indicates whether the CNV is a deletion, a duplication, or a multi-allelic CNV (mixed).
+<p>
+Hovering over a CNV will display details about the CNV that is currently underneath the pointer.
+
+<h3>Navigation</h3>
+<p>
+You can scroll the locus plot to the left and right using the controls at the top left.
+You can zoom the locus plot in and out using the controls above the plot to the right.
+You can also quickly zoom in using "left-click-drag-release" to select an area within the locus plot.
+<p>
+Left-clicking on a CNV on the plot will take you to the details page for that CNV.
+
+<h3>CNV Table</h3>
+Below the locus plot is a table of CNVs matching the search criteria.
+You can use the controls in the table header to sort and filter the list of CNVs.
+You can use the Download button to download the contents of the table as a tab-delimited file.
+
+<h2>Details Tab</h2>
+The details tab provides multiple levels of detail about a specific CNV (the "focus" of the details tab).
+
+<h3>History of visited CNVs</h3>
+As you view individual CNVs, the browser maintains a list of the CNVs you have visited.
+The two buttons at the top of the details tab allow you to move forwards or backwards in this history list.
+
+<h3>Locus Map</h3>
+The details tab shows the genomic region surrounding the focus CNV to provide context.
+This plot is similar to the locus plot on the Search tab.
+You can use the locus map to zoom and scroll and navigate to nearby CNVs.
+If you left-click on a CNV in the locus map, this CNV will become the new focus CNV.
+
+<h3>Basic Information</h3>
+Displays information about the focus CNV.
+<p>
+The "alignable" length of the CNV indicates how much of the sequencing within the CNV is non-repetitive and should produce reliable read alignments from sequencing data. CNVs where the alignable length is close to the genomic length will have more accurate copy number estimates from read depth analysis.
+<p>If a specific breakpoint was able to be assembled from spanning reads, this is shown in the GS Breakpoint field (tag GSBKPT in the VCF file).
+The breakpoint is encoded as <i>chromosome:start:end:length:refAllele:altAllele:supportCount</i>.
+<p>The length component is the <i>net length</i> of a deletion or the number of net bases lost in the presence of the alternate allele compared to the reference.
+<p>The refAllele uses an abbreviated notation <i>B<nnn>B</i> to show the bases that are replaced from the reference genome with the bases listed in the altAllele field to form the alternate allele. This abbreviated refAllele notation lists just the first and last bases from the reference (at the correponding start and end positions) and the number of bases in between in angle brackets.
+<p>The frequency is number of haplotypes in this cohort carrying a non-reference copy of this allele (also displayed as a fraction of the haplotypes in this cohort).
+<p>The CNV URL provides a browser link to the focus CNV that is currently displayed. You can bookmark this link, for example, or email it to collaborators.
+
+<h3 id="help-topic-allele-frequency-table">Allele Frequency By Population</h3>
+Displays information about the frequency of the focus variant in this cohort. The categories used for the different populations are cohort specific.
+<p>The Haploid/Diploid check box controls whether the data is displayed based on haploid copy numbers or diploid copy number observations. The haploid copy numbers (or allelic copy numbers) use the notation AC0, AC1, etc., to indicate haploid copy numbers 0, 1, etc. The diploid copy numbers use the notation DCN0, DCN1, etc. For bi-allelic variants, the resolution into haploid copy numbers is inferred from the diploid copy number. For multi-allelic variants, statistical phasing is used to assign the haploid copy numbers from the diploid observations.
+<p>The "star" allele is used to flag haplotypes that do not carry either the focus variant or the reference allele. For example, if a particular individual carries a different but overlapping deletion, the haplotype carrying the overlapping deletion will be assigned to the star allele.
+<p>The Count/Frequency check box controls whether the data is displayed as absolute counts or as a fraction of the number of haplotypes in the cohort (or the number of individuals in the cohort for diploid copy numbers).
+
+<h3 id="help-topic-sample-genotypes">Sample Genotypes</h3>
+Displays a table of genotypes for every sample in the cohort.
+<p>If you click on a row of this table, other plots will update to show data for this sample and sample batch.
+<p>Show samples controls whether the table should be limited just for samples that carry the focus allele (<b>Carriers</b>) or to samples that carry an allele other than the reference (e.g. "star" alleles) (<b>Non-ref</b>) or whether all samples should be listed (<b>All</b>).
+<p>The column headings in the table can be used to sort the contents of the table.
+<p>The <b>batch</b> column indicates the batch the sample was grouped with during analysis.
+<p><b>ACN</b> specifies the genotype of the sample in terms of allelic copy numbers. A zero represents a deletion allele, a value of one represents the reference and values above one represent a duplication. <b>WARNING:</b> In the current release, statistical phasing has not been performed on multi-allelic variants, so the ACN genotype assignments are not necessarily accurate.
+<p><b>CNF</b> gives an estimate of the observed (diploid) copy number of the sample from read depth.
+<p><b>PC</b> (pair count) indicates the number of reads (fragments) that support the breakpoint for this sample. This includes split reads and aberrantly spaced read pairs.
+<p><b>PC2</b> lists three integers. The first is the number of supporting reads for this sample that match the primary (canonical) breakpoint. The second integer lists the number of supporting reads that are aberrantly spaced but do not provide direct evidence of the breakpoint. The third is the number of reads that support this variant but suggest a different breakpoint from the primary canonical breakpoint. PC is the sum of the three PC2 integers.
+
+<h3 id="help-topic-copy-number-plot">Copy Number Across Samples</h3>
+A plot of the estimated copy number distribution from read depth.
+<p>This plot shows the copy number distribution across all samples in the cohort. The individual copy number data is computed in batches then merged.
+<p>Non-confident calls (from the copy number distribution) are shown in gray (or not shown if the check box is unchecked).
+<p>If checked, <b>Hide star-allele samples</b> check box causes any samples called as carrying a different, overlapping allele are removed from the plot. These samples will often show up as clustering at non-integer values in the overall copy number distribution.
+<p>The slider at the top of the plot can be used to zoom the Y axis. This is useful for visualizing highly skewed distributions at low frequency CNVs.
+
+<h3 id="help-topic-copy-number-batch-plot">Copy Number By Genotyping Batch</h3>
+A plot of the copy number distribution from read depth for a single batch.
+<p>The <b>Genotyping Batch</b> control allows you to select different batches to display. This setting also determines which batch is displayed in the batch profile plot shown below.
+<p>This plot shows the underlying data (per batch) used to build the copy number distribution across samples. It can be useful for investigating batch effects.
+
+<h3 id="help-topic-batch-profile-plot">Batch Profile Plot</h3>
+Plot showing the read depth profile of a subset of the samples in the cohort.
+<p>
+The batch profile plot displays the normalized sequencing read depth for each sample as a horizontal trace across the genome. Deletions will appear as dips in the sample's profile and duplications will display as regions of elevated read depth.
+<p>
+Vertical dashed red lines indicate the boundaries of the current focus CNV.
+<p>
+The read depth profiles are binned at different resolutions (e.g. 100bp, 1000bp) and then merged for display. The browser will automatically select different resolutions if you zoom in or out. You can also control the binning more precisely by unchecking the <b>Use auto binning</b> box above the plot and specifying the binning parameters manually. Note that this may degrade performance.
+<p>
+You can select one or more "focus" samples to highlight by using the controls above the plot, or by picking samples from the genotype table, or by clicking on individual sample traces in the profile plot itself. The highlight samples are shown in blue by default, but you can change the color using the controls above the plot.
+<p>
+When a sample is not highlighted, the color indicates the assigned genotype at the current focus CNV.
+<p>
+Controls above the plot allow you to expand the visible range of the profile plot or to change the overall height of the plot.
+<p>
+The plot contains a track (<b>Discovery</b>) that display "interesting" read pairs found during analysis that might suggest the presence of a structural variation. These read pairs might have split alignments that span a deletion breakpoint or might have aberrant spacing.
+<p>
+The plot contains a track (<b>Pairs</b>) that displays read pairs used to support the breakpoint in any highlighted focus samples.
+
+</div>
